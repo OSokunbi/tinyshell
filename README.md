@@ -1,36 +1,27 @@
-[![progress-banner](https://backend.codecrafters.io/progress/shell/dfeaa616-3ed1-488e-9f5a-5cff2ff9afff)](https://app.codecrafters.io/users/codecrafters-bot?r=2qF)
+## tinyshell
 
-This is a starting point for Go solutions to the
-["Build Your Own Shell" Challenge](https://app.codecrafters.io/courses/shell/overview).
+tinyshell is a simple shell that can run commands and execute scripts. it is written in Go in order to learn more about the language and how shells work.
 
-In this challenge, you'll build your own POSIX compliant shell that's capable of
-interpreting shell commands, running external programs and builtin commands like
-cd, pwd, echo and more. Along the way, you'll learn about shell command parsing,
-REPLs, builtin commands, and more.
+its pretty lightweight, its written in aroudn 125 lines of code. it was pretty fun to make and i learned a lot about how shells work. 
 
-**Note**: If you're viewing this repo on GitHub, head over to
-[codecrafters.io](https://codecrafters.io) to try the challenge.
+### structure
+its architecture is pretty simple, i have a couple of types for the shell, including
+- `Cwd` - the current working directory
+- `Reader` - a reader that reads input from the user
+- `Commands` - a map of commands that the shell can run
 
-# Passing the first stage
+Commands is a map of strings to functions, where the string is the name of the command and the function is the function that the command runs.
+- each function takes in a string as an argument as well as a pointer to the current shell session
 
-The entry point for your `shell` implementation is in `cmd/myshell/main.go`.
-Study and uncomment the relevant code, and push your changes to pass the first
-stage:
+i have a type called shell that holds the state of the shell, and a function. the shell has a prompt that is displayed to the user, and the user can enter commands. the shell reads the input, parses it, and then executes it. the shell can run commands and execute scripts.
 
-```sh
-git add .
-git commit -m "pass 1st stage" # any msg
-git push origin master
-```
+### builtins
+the shell has a couple of builtins, including
+- `cd` - change directory
+- `exit` - exit the shell
+- `pwd` - print the current working directory
+- `echo` - print a string to the console
 
-Time to move on to the next stage!
+that's about it, feel free to use this or modify and make additions to it as you see fit. i hope you enjoy it!
 
-# Stage 2 & beyond
-
-Note: This section is for stages 2 and beyond.
-
-1. Ensure you have `go (1.19)` installed locally
-1. Run `./your_shell.sh` to run your program, which is implemented in
-   `cmd/myshell/main.go`.
-1. Commit your changes and run `git push origin master` to submit your solution
-   to CodeCrafters. Test output will be streamed to your terminal.
+# ʕ˙Ⱉ˙ʔ rawr!

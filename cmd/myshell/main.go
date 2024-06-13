@@ -10,7 +10,7 @@ import (
 )
 
 type Shell struct {
-    Commands map[string] func( * Shell, string)
+    Commands map[string] func(* Shell, string)
     Reader * bufio.Reader
     Cwd string
 }
@@ -18,7 +18,7 @@ type Shell struct {
 func NewShell() * Shell {
     cwd, _ := os.Getwd()
     return &Shell {
-        Commands: make(map[string] func( * Shell, string)),
+        Commands: make(map[string] func(* Shell, string)),
         Reader: bufio.NewReader(os.Stdin),
         Cwd: cwd,
     }
@@ -57,15 +57,15 @@ func main() {
     }
 }
 
-func echo(shell * Shell, statement string) {
+func echo(shell *Shell, statement string) {
     fmt.Fprintln(os.Stdout, statement)
 }
 
-func exit(shell * Shell, command string) {
+func exit(shell *Shell, command string) {
     os.Exit(0)
 }
 
-func typeCommand(shell * Shell, command string) {
+func typeCommand(shell *Shell, command string) {
     if _, ok := shell.Commands[command];
     ok {
         fmt.Printf("%s is a shell builtin\n", command)
@@ -105,11 +105,11 @@ func executeExternalCommand(command string, arg string) {
     }
 }
 
-func printWorkingDir(shell * Shell, command string) {
+func printWorkingDir(shell *Shell, command string) {
     fmt.Println(shell.Cwd)
 }
 
-func changeDirectory(shell * Shell, newPath string) {
+func changeDirectory(shell *Shell, newPath string) {
     if newPath == "" {
         return
     }
