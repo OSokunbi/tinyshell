@@ -33,7 +33,7 @@ func main() {
     myShell.Commands["cd"] = changeDirectory
 
     for {
-        fmt.Fprint(os.Stdout, "$ ")
+        fmt.Fprint(os.Stdout, "ʕっ•ᴥ•ʔっ ")
         cmd, err := myShell.Reader.ReadString('\n')
         if err != nil {
             fmt.Fprintf(os.Stderr, "Error reading command: %v\n", err)
